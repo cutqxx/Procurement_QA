@@ -1,0 +1,8 @@
+2022/04/19-08:30:05.836 150b Reusing MANIFEST /Users/siroja/Desktop/work/testing/Automate QA/Selenium/Procurement/foobar/Default/Session Storage/MANIFEST-000001
+2022/04/19-08:30:05.841 150b Recovering log #3
+2022/04/19-08:30:05.841 150b (ignoring error) /Users/siroja/Desktop/work/testing/Automate QA/Selenium/Procurement/foobar/Default/Session Storage/000003.log: dropping 125 bytes; Corruption: missing start of fragmented record(2)
+2022/04/19-08:30:05.842 150b (ignoring error) /Users/siroja/Desktop/work/testing/Automate QA/Selenium/Procurement/foobar/Default/Session Storage/000003.log: dropping 27631 bytes; Corruption: checksum mismatch
+2022/04/19-08:30:05.842 150b (ignoring error) /Users/siroja/Desktop/work/testing/Automate QA/Selenium/Procurement/foobar/Default/Session Storage/000003.log: dropping 20 bytes; Corruption: missing start of fragmented record(2)
+2022/04/19-08:30:05.842 150b (ignoring error) /Users/siroja/Desktop/work/testing/Automate QA/Selenium/Procurement/foobar/Default/Session Storage/000003.log: dropping 23721 bytes; Corruption: checksum mismatch
+2022/04/19-08:30:05.842 150b (ignoring error) /Users/siroja/Desktop/work/testing/Automate QA/Selenium/Procurement/foobar/Default/Session Storage/000003.log: dropping 9 bytes; Corruption: missing start of fragmented record(2)
+2022/04/19-08:30:05.845 150b Reusing old log /Users/siroja/Desktop/work/testing/Automate QA/Selenium/Procurement/foobar/Default/Session Storage/000003.log 
