@@ -40,3 +40,4 @@ class TestSmoke():
         page_sheet.add_pid_in_forma()
         page_sheet.fill_the_fields_prorabotka_potrebnosti()
         page_sheet.click_button_vnesti_in_forma()
+        #НУЖНО СДЕЛАТЬ ПРОВЕРКУ НА ЗАПОЛНЕНИЕ ФОРМЫ!!!!!!!!

@@ -24,8 +24,6 @@ class ProjectsPageLocators():
 
 
 class SheetPageLocators():
-
-
     BUTTON_ADD_POTREBNOST = "div.nav-buttons div.mdc-button__ripple"
     UPLOAD_FILES = "div.modal-tooltip input"
     NAME_PROJECT = "h4.header-view__title"
@@ -41,12 +39,12 @@ class FormaProrabotkaPotrebnosti():
     PID = '//*[@id="toggle--А.3"]'
     BUTTON_ADD_PID = "div.pids-flex button"
     GENPODRYADCHICK = "//html/body/div[1]/div/div/div[1]/div[2]/div/div[2]/table/tbody/tr/td[4]/div/div/div[1]/div[1]/div[2]"
-    GENPODRYADCHICK_OPTION = "id=react-select-2-option-0"
+    GENPODRYADCHICK_OPTION = "id=react-select-3-option-0"
     DATEPICKER_1 = "div.react-datepicker__input-container"
     DATEPICKER_2 = "div.react-datepicker__input-container"
     DATE = "div.react-datepicker div.react-datepicker__day--005"
     IZGOTOVITEL_POLE = "//html/body/div[1]/div/div/div[1]/div[2]/div/div[2]/table/tbody/tr/td[6]/div/div/div[1]/div[1]/div[2]"
-    IZGOTOVITEL_OPTION = "id=react-select-3-option-0"
+    IZGOTOVITEL_OPTION = "id=react-select-2-option-0"
     POSTAVSHIK_POLE = "//html/body/div[1]/div/div/div[1]/div[2]/div/div[2]/table/tbody/tr/td[7]/div/div/div[1]"
     POSTAVSHIK_OPTION = "id=react-select-4-option-0"
     DATE_VIBORA_ODCI = "//html/body/div[1]/div/div/div[1]/div[2]/div/div[2]/table/tbody/tr/td[8]/div/div[1]/div/label/input"

@@ -31,7 +31,7 @@ class SheetPage(BasePage):
         self.page.click(FormaProrabotkaPotrebnosti.DATE)
         self.page.fill(FormaProrabotkaPotrebnosti.COMMENT_ZAKUPKA, "Комментарий к закупке")
         self.page.fill(FormaProrabotkaPotrebnosti.ORIENTIR_CENA, "100")
-        time.sleep(3)
+        # time.sleep(3)
 
     def click_button_rasschitat(self):
         self.page.click()
