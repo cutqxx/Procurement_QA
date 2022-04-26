@@ -6,7 +6,6 @@ import playwright
 
 class ProjectPage(BasePage):
 
-
     def check_title_projects_page(self):
         title = self.page.inner_text(ProjectsPageLocators.TITLE_NAME)
         assert title == "Проекты", 'Вы находитесь не на экране "Проекты"'
@@ -20,7 +19,7 @@ class ProjectPage(BasePage):
     def create_new_projects(self):
         self.page.fill(ProjectsPageLocators.NAME_NEW_PROJECT, "project")
         self.page.click(ProjectsPageLocators.CREATE_PROJECT_BUTTON)
-
+        time.sleep(0.5)
         locator = self.page.locator(ProjectsPageLocators.CHECK_COUNT_PROJECT_EDIT_CARD)
         count = locator.count()
         n = count

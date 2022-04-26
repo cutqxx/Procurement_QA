@@ -17,13 +17,14 @@ def context(
         **browser_type_launch_args,
         **browser_context_args,
         "headless": False,
-        "slow_mo": 200
+        "slow_mo": 100
     })
     context = browser.new_context(storage_state="auth.json", **browser_context_args)
 
     yield context
-    # storage = context.storage_state(path="auth.json")
+    context.storage_state(path="auth.json")
     context.close()
+    browser.close()
 
 
 

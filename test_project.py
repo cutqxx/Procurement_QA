@@ -27,17 +27,44 @@ class TestSmoke():
         page_sheet.add_potrebnost()
         # time.sleep(3)
 
-    @pytest.mark.new
     def test_fill_forma_prorabotka(self, page: Page):
+        print("Тест: заполнение данных в форму предварительной подготовки")
         link = "https://procurement2021.tk/projects"
         page_project = ProjectPage(page, link)
         page_sheet = SheetPage(page, link)
-        # page_project.open_context()
-        print("Тест: заполнение данных в форму предварительной подготовки")
         page_project.open()
         page_project.open_project()
         page_sheet.click_button_open_forma(1)
         page_sheet.add_pid_in_forma()
         page_sheet.fill_the_fields_prorabotka_potrebnosti()
         page_sheet.click_button_vnesti_in_forma()
-        #НУЖНО СДЕЛАТЬ ПРОВЕРКУ НА ЗАПОЛНЕНИЕ ФОРМЫ!!!!!!!!
+        page_sheet.data_entry_check_after_prorabotka_potrebnosti()
+
+    def test_fill_forma_kontraktaciya(self, page: Page):
+        print("Тест: заполнение данных в форму контрактации")
+        link = "https://procurement2021.tk/projects"
+        page_project = ProjectPage(page, link)
+        page_sheet = SheetPage(page, link)
+        page_project.open()
+        page_project.open_project()
+        page_sheet.click_button_open_forma(2)
+        page_sheet.add_pid_in_forma()
+        page_sheet.fill_the_fields_kontraknaciya()
+        page_sheet.click_button_rasschitat()
+        page_sheet.click_button_vnesti_in_forma()
+        page_sheet.data_entry_check_after_kontraktacii()
+
+    @pytest.mark.new
+    def test_fill_forma_otgruzka(self,page: Page ):
+        print("Тест: заполнение данных в форму отгрузки")
+        link = "https://procurement2021.tk/projects"
+        page_project = ProjectPage(page, link)
+        page_sheet = SheetPage(page, link)
+        page_project.open()
+        page_project.open_project()
+        page_sheet.click_button_open_forma(3)
+        page_sheet.add_pid_in_forma()
+        page_sheet.fill_the_fields_otgruzka()
+        page_sheet.click_button_rasschitat()
+        page_sheet.click_button_vnesti_in_forma()
+        page_sheet.data_entry_check_after_otgruzka()
