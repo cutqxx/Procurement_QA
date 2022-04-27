@@ -54,7 +54,6 @@ class TestSmoke():
         page_sheet.click_button_vnesti_in_forma()
         page_sheet.data_entry_check_after_kontraktacii()
 
-    @pytest.mark.new
     def test_fill_forma_otgruzka(self,page: Page ):
         print("Тест: заполнение данных в форму отгрузки")
         link = "https://procurement2021.tk/projects"
@@ -68,3 +67,43 @@ class TestSmoke():
         page_sheet.click_button_rasschitat()
         page_sheet.click_button_vnesti_in_forma()
         page_sheet.data_entry_check_after_otgruzka()
+
+    def test_fill_forma_logistika(self, page: Page):
+        print("Тест: заполнение данных в форму логистики")
+        link = "https://procurement2021.tk/projects"
+        page_project = ProjectPage(page, link)
+        page_sheet = SheetPage(page, link)
+        page_project.open()
+        page_project.open_project()
+        page_sheet.click_button_open_forma(4)
+        page_sheet.add_pid_in_forma()
+        page_sheet.fill_the_fields_logistika()
+        page_sheet.click_button_vnesti_in_forma()
+        page_sheet.data_entry_check_after_logistika()
+
+    def test_fill_forma_postuplenie(self, page: Page):
+        print("Тест: заполнение данных в форму поступление")
+        link = "https://procurement2021.tk/projects"
+        page_project = ProjectPage(page, link)
+        page_sheet = SheetPage(page, link)
+        page_project.open()
+        page_project.open_project()
+        page_sheet.click_button_open_forma(5)
+        page_sheet.add_pid_in_forma()
+        page_sheet.fill_the_fields_postuplenie()
+        page_sheet.click_button_vnesti_in_forma()
+        page_sheet.data_entry_check_after_postuplenie()
+
+    @pytest.mark.new
+    def test_fill_forma_oprihodovanie(self, page: Page):
+        print("Тест: заполнение данных в форму оприходование")
+        link = "https://procurement2021.tk/projects"
+        page_project = ProjectPage(page, link)
+        page_sheet = SheetPage(page, link)
+        page_project.open()
+        page_project.open_project()
+        page_sheet.click_button_open_forma(6)
+        page_sheet.add_pid_in_forma()
+        page_sheet.fill_the_fields_oprihodovanie()
+        page_sheet.click_button_vnesti_in_forma()
+        page_sheet.data_entry_check_after_oprihodovanie()

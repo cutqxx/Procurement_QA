@@ -24,6 +24,7 @@ class SheetPageLocators():
     BUTTON_VNESTI_IN_FORMA = "text=Внести"
     FORMA_PRORABOKTA_POTREBNOSTI = "//html/body/div[2]/div/header/div/section[2]/div/div[2]/button/div"
     BUTTON_RASSCHITAT_IN_FORMA = 'button:has-text("Рассчитать")'
+    CHECK_ADD_POTREBNOST = "div.table-board-td >> nth=0"
 
 
 class FormaProrabotkaPotrebnosti():
@@ -44,6 +45,7 @@ class FormaProrabotkaPotrebnosti():
     DATE_SOGLASOVANIYA_KDNO = "//html/body/div[1]/div/div/div[1]/div[2]/div/div[2]/table/tbody/tr/td[10]/div/div[1]/div/label/input"
     COMMENT_ZAKUPKA = "//html/body/div[1]/div/div/div[1]/div[2]/div/div[2]/table/tbody/tr/td[11]/div/label/input"
     ORIENTIR_CENA = "//html/body/div[1]/div/div/div[1]/div[2]/div/div[2]/table/tbody/tr/td[12]/div/label/input"
+    # check:
     CHECK_ORIENTIR_CENA = "div.table-board-td >> nth=49"
     CHECK_ORIENTIR_STOIMOST = "div.table-board-td >> nth=50"
 
@@ -61,6 +63,7 @@ class FormaKontraktacii():
     KOLVO_KONTRAKTACII_FAKTICH = "input.mdc-text-field__input >> nth = 5"
     CENA_KONTRAKTACII_FAKTICH = "input.mdc-text-field__input >> nth = 6"
     COMMENT_ZAKUPKA = "input.mdc-text-field__input >> nth = 7"
+    # check:
     CHECK_KOLVO_ZAKONTRAKTOVANO_RD = "div.table-board-td >> nth=44"
     CHECK_PROCENT_KONTRAKTACII_KOLVO = "div.table-board-td >> nth=51"
     CHECK_ORIENTIROVOCHNAYA_STOIMOST = "div.table-board-td >> nth=50"
@@ -71,6 +74,7 @@ class FormaKontraktacii():
     CHECK_STOIMOST_KONTRAKTACII = "div.table-board-td >> nth=48"
     CHECK_KOEFFICIENT_PERESCHETA = "div.table-board-td >> nth=16"
 
+
 class FormaOtgruzka():
     DATE = "div.react-datepicker div.react-datepicker__day--005"
     DATE_OTGRUZKI = "input.mdc-text-field__input"
@@ -80,10 +84,56 @@ class FormaOtgruzka():
     DATE_TTN = "input.mdc-text-field__input >> nth= 4"
     KOLVO_OTGRUZHENO_FAKTICHESKOE = "input.mdc-text-field__input >> nth= 5"
     COMMENT_ZAKUPKA = "input.mdc-text-field__input >> nth = 6"
+    # check:
     CHECK_KOLVO_OTGRUZHENO_RD = "div.table-board-td >> nth=54"
     CHECK_PROCENT_OTGRUZKI_KOLVO = "div.table-board-td >> nth=58"
     CHECK_STOIMOST_OTGRUZKI = "div.table-board-td >> nth=57"
     CHECK_PROCENT_OTGRUZKI_STOIMOST = "div.table-board-td >> nth=59"
     CHECK_KOLVO_OTGRUZHENO_FAKTICH = "div.table-board-td >> nth=55"
     CHECK_KOLVO_OTGRUZHENO_BAZOVOE = "div.table-board-td >> nth=56"
+
+
+class FormaLogistika():
+    PEREVOZCHIK = "input.mdc-text-field__input"
+    VID_POSTAVKI = "input.mdc-text-field__input >> nth=1"
+    MESTO_PEREVALKI = "input.mdc-text-field__input >> nth=2"
+    DATA_POSTUPLENIYA_V_PORT = "input.mdc-text-field__input >> nth=3"
+    DATE = "div.react-datepicker div.react-datepicker__day--005"
+    MASSA = "input.mdc-text-field__input >> nth=4"
+    GABARITY = "input.mdc-text-field__input >> nth=5"
+    COMMENT_LOGISTIKA = "input.mdc-text-field__input >> nth=6"
+    # check:
+    CHECK_PEREVOZCHICK = "div.table-board-td >> nth=65"
+    CHECK_VID_POSTAVKI = "div.table-board-td >> nth=66"
+    CHECK_MESTO_PEREVALKI = "div.table-board-td >> nth=68"
+    CHECK_DATA_POSTUPLENIYA = "div.table-board-td >> nth=70"
+    CHECK_MASSA = "div.table-board-td >> nth=67"
+    CHECK_GABARITY = "div.table-board-td >> nth=69"
+    CHECK_COMMENT_LOGISTIKA = "div.table-board-td >> nth=71"
+
+
+class FormaPostuplenie():
+    KOLVO_POSTAVLENNOE_FAKTICH = "input.mdc-text-field__input"
+    # check:
+    CHECK_KOLVO_POSTAVLENNOE_RD = "div.table-board-td >> nth=73"
+    CHECK_PROCENT_POSTAVKI_KOLVO = "div.table-board-td >> nth=77"
+    CHECK_STOIMOST_POSTAVKI = "div.table-board-td >> nth=76"
+    CHECK_PROCENT_POSTAVKI_STOIMOST = "div.table-board-td >> nth=78"
+    CHECK_KOLVO_POSTAVLENNOE_FAKTICH = "div.table-board-td >> nth=74"
+    CHECK_KOLVO_POSTAVLENNOE_BAZOVOE = "div.table-board-td >> nth=75"
+
+
+class FormaOprihodovanie():
+    DATE = "div.react-datepicker div.react-datepicker__day--005"
+    DATA_OPRIHODOVANIYA = "input.mdc-text-field__input"
+    KOLVO_OPRIHODOVANNOE_FAKTICH = "input.mdc-text-field__input >> nth=1"
+    NOMER_AKTA_VHODNOGO_CONTROL = "input.mdc-text-field__input >> nth=2"
+    DATA_AKTA_VHODNOGO_CONTROL = "input.mdc-text-field__input >> nth=3"
+    #check:
+    CHECK_KOLVO_OPRIHODOVANO_RD = "div.table-board-td >> nth=80"
+    CHECK_PROCENT_OPRIHODOVANO_KOLVO = "div.table-board-td >> nth=86"
+    CHECK_STOIMOST_OPRIHODOVANIE = "div.table-board-td >> nth=84"
+    CHECK_PROCENT_OPRIHODOVANO_STIOMOST = "div.table-board-td >> nth=87"
+    CHECK_KOLVO_OPRIHODOVANNOE_FAKTICH = "div.table-board-td >> nth=81"
+    CHECK_KOLVO_OPRIHODOVANNOE_BAZOVOE = "div.table-board-td >> nth=82"
 

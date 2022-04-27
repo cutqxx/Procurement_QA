@@ -5,16 +5,12 @@ from .locators import SheetPageLocators
 from .locators import FormaProrabotkaPotrebnosti
 from .locators import FormaKontraktacii
 from .locators import FormaOtgruzka
+from .locators import FormaLogistika
+from .locators import FormaPostuplenie
+from .locators import FormaOprihodovanie
 
 
 class SheetPage(BasePage):
-    def add_potrebnost(self):
-        self.page.click(SheetPageLocators.BUTTON_ADD_POTREBNOST)
-        self.page.set_input_files(SheetPageLocators.UPLOAD_FILES, 'Example/potreb.xlsx')
-        raw = "//html/body/div[2]/div/div[2]/div/div/div[2]/table/tbody/tr[1]/td[1]/div/span"
-        self.page.locator(raw).wait_for()
-        check = self.page.inner_text(raw)
-        assert check == "НМЗ-НСК", "Таблица не создана!"
 
     def scroll_general_table(self):
         self.page.locator("div.table-board-td >> nth=-1").scroll_into_view_if_needed()
@@ -71,6 +67,7 @@ class SheetPage(BasePage):
 
     def add_pid_in_forma(self):
         self.page.click(FormaProrabotkaPotrebnosti.PID_BUTTON)
+        self.page.locator(FormaProrabotkaPotrebnosti.PID).wait_for()
         self.page.click(FormaProrabotkaPotrebnosti.PID)
         self.page.click(FormaProrabotkaPotrebnosti.BUTTON_ADD_PID)
         time.sleep(1)
@@ -83,6 +80,16 @@ class SheetPage(BasePage):
 
     # ------
     # --Внесение данных в формы заполнения табличных данных
+
+    def add_potrebnost(self):
+        self.page.click(SheetPageLocators.BUTTON_ADD_POTREBNOST)
+        self.page.set_input_files(SheetPageLocators.UPLOAD_FILES, 'Example/potreb.xlsx')
+        # raw = self.page.locator(SheetPageLocators.CHECK_ADD_POTREBNOST).wait_for()
+        time.sleep(0.5)
+        check = self.page.inner_text(SheetPageLocators.CHECK_ADD_POTREBNOST)
+        assert check == "НМЗ-НСК", "Таблица не создана!"
+
+    # Форма "Предв. проработка потребности"
     def fill_the_fields_prorabotka_potrebnosti(self):
         self.page.click(FormaProrabotkaPotrebnosti.GENPODRYADCHICK)
         self.page.click(FormaProrabotkaPotrebnosti.SELECTOR_OPTION)
@@ -175,3 +182,76 @@ class SheetPage(BasePage):
         assert CHECK_PROCENT_OTGRUZKI_STOIMOST == "13,39", f'значение в поле "% отгрузки (ст-сть)" = {CHECK_PROCENT_OTGRUZKI_STOIMOST}'
         assert CHECK_KOLVO_OTGRUZHENO_FAKTICH == "370,000", f'значение в поле "Кол-во отгружено фактическое" = {CHECK_KOLVO_OTGRUZHENO_FAKTICH}'
         assert CHECK_KOLVO_OTGRUZHENO_BAZOVOE == "370,000", f'значение в поле "Кол-во отгружено базовое" = {CHECK_KOLVO_OTGRUZHENO_BAZOVOE}'
+
+    # форма "Логистика"
+    def fill_the_fields_logistika(self):
+        self.page.fill(FormaLogistika.PEREVOZCHIK, "Перевозчик")
+        self.page.fill(FormaLogistika.VID_POSTAVKI, "Вид поставки")
+        self.page.fill(FormaLogistika.MESTO_PEREVALKI, "Место перевалки")
+        self.page.click(FormaLogistika.DATA_POSTUPLENIYA_V_PORT)
+        self.page.click(FormaLogistika.DATE)
+        self.page.fill(FormaLogistika.MASSA, "100")
+        self.page.fill(FormaLogistika.GABARITY,"10")
+        self.page.fill(FormaLogistika.COMMENT_LOGISTIKA, "Комментарий логистика")
+
+    def data_entry_check_after_logistika(self):
+        self.scroll_general_table()
+        CHECK_PEREVOZCHICK = self.page.inner_text(FormaLogistika.CHECK_PEREVOZCHICK)
+        CHECK_VID_POSTAVKI = self.page.inner_text(FormaLogistika.CHECK_VID_POSTAVKI)
+        CHECK_MESTO_PEREVALKI = self.page.inner_text(FormaLogistika.CHECK_MESTO_PEREVALKI)
+        CHECK_MASSA = self.page.inner_text(FormaLogistika.CHECK_MASSA)
+        CHECK_GABARITY = self.page.inner_text(FormaLogistika.CHECK_GABARITY)
+        CHECK_COMMENT_LOGISTIKA = self.page.inner_text(FormaLogistika.CHECK_COMMENT_LOGISTIKA)
+
+        assert CHECK_PEREVOZCHICK == "Перевозчик", f'значение в поле "Перевозчик" = {CHECK_PEREVOZCHICK}'
+        assert CHECK_VID_POSTAVKI == "Вид поставки", f'значение в поле "Перевозчик" = {CHECK_VID_POSTAVKI}'
+        assert CHECK_MESTO_PEREVALKI == "Место перевалки", f'значение в поле "Место перевалки" = {CHECK_MESTO_PEREVALKI}'
+        assert CHECK_MASSA == "100,000", f'значение в поле "Масса за ед., тн" = {CHECK_MASSA}'
+        assert CHECK_GABARITY == "10,000", f'значение в поле "Габариты за ед., м3" = {CHECK_GABARITY}'
+        assert CHECK_COMMENT_LOGISTIKA == "Комментарий логистика", f'значение в поле "Комментарий логистика" = {CHECK_COMMENT_LOGISTIKA}'
+
+    # форма "Поступление"
+    def fill_the_fields_postuplenie(self):
+        self.page.fill(FormaPostuplenie.KOLVO_POSTAVLENNOE_FAKTICH, "143")
+
+    def data_entry_check_after_postuplenie(self):
+        self.scroll_general_table()
+        CHECK_KOLVO_POSTAVLENNOE_RD = self.page.inner_text(FormaPostuplenie.CHECK_KOLVO_POSTAVLENNOE_RD)
+        CHECK_PROCENT_POSTAVKI_KOLVO = self.page.inner_text(FormaPostuplenie.CHECK_PROCENT_POSTAVKI_KOLVO)
+        CHECK_STOIMOST_POSTAVKI = self.page.inner_text(FormaPostuplenie.CHECK_STOIMOST_POSTAVKI)
+        CHECK_PROCENT_POSTAVKI_STOIMOST = self.page.inner_text(FormaPostuplenie.CHECK_PROCENT_POSTAVKI_STOIMOST)
+        CHECK_KOLVO_POSTAVLENNOE_FAKTICH = self.page.inner_text(FormaPostuplenie.CHECK_KOLVO_POSTAVLENNOE_FAKTICH)
+        CHECK_KOLVO_POSTAVLENNOE_BAZOVOE = self.page.inner_text(FormaPostuplenie.CHECK_KOLVO_POSTAVLENNOE_BAZOVOE)
+
+        assert CHECK_KOLVO_POSTAVLENNOE_RD == "143,000", f'значение в поле "Кол-во поставлено РД" = {CHECK_KOLVO_POSTAVLENNOE_RD}'
+        assert CHECK_PROCENT_POSTAVKI_KOLVO == "5,720", f'значение в поле "% поставки (кол-во)" = {CHECK_PROCENT_POSTAVKI_KOLVO}'
+        assert CHECK_STOIMOST_POSTAVKI == "28 600,00", f'значение в поле "Cтоимость поставки (руб. без учета НДС)" = {CHECK_STOIMOST_POSTAVKI}'
+        assert CHECK_PROCENT_POSTAVKI_STOIMOST == "5,180", f'значение в поле "% поставки (ст-сть)" = {CHECK_PROCENT_POSTAVKI_STOIMOST}'
+        assert CHECK_KOLVO_POSTAVLENNOE_FAKTICH == "143,000", f'значение в поле "Кол-во поставленное фактическое" = {CHECK_KOLVO_POSTAVLENNOE_FAKTICH}'
+        assert CHECK_KOLVO_POSTAVLENNOE_BAZOVOE == "143,000", f'значение в поле "Кол-во поставленное базовое" = {CHECK_KOLVO_POSTAVLENNOE_BAZOVOE}'
+
+    # форма "Оприходование"
+    def fill_the_fields_oprihodovanie(self):
+        self.page.click(FormaOprihodovanie.DATA_OPRIHODOVANIYA)
+        self.page.click(FormaOprihodovanie.DATE)
+        self.page.fill(FormaOprihodovanie.KOLVO_OPRIHODOVANNOE_FAKTICH, "100")
+        self.page.fill(FormaOprihodovanie.NOMER_AKTA_VHODNOGO_CONTROL, "№7")
+        self.page.click(FormaOprihodovanie.DATA_AKTA_VHODNOGO_CONTROL)
+        self.page.click(FormaOprihodovanie.DATE)
+
+    def data_entry_check_after_oprihodovanie(self):
+        self.scroll_general_table()
+        CHECK_KOLVO_OPRIHODOVANO_RD = self.page.inner_text(FormaOprihodovanie.CHECK_KOLVO_OPRIHODOVANO_RD)
+        CHECK_PROCENT_OPRIHODOVANO_KOLVO = self.page.inner_text(FormaOprihodovanie.CHECK_PROCENT_OPRIHODOVANO_KOLVO)
+        CHECK_STOIMOST_OPRIHODOVANIE = self.page.inner_text(FormaOprihodovanie.CHECK_STOIMOST_OPRIHODOVANIE)
+        CHECK_PROCENT_OPRIHODOVANO_STIOMOST = self.page.inner_text(FormaOprihodovanie.CHECK_PROCENT_OPRIHODOVANO_STIOMOST)
+        CHECK_KOLVO_OPRIHODOVANNOE_FAKTICH = self.page.inner_text(FormaOprihodovanie.CHECK_KOLVO_OPRIHODOVANNOE_FAKTICH)
+        CHECK_KOLVO_OPRIHODOVANNOE_BAZOVOE = self.page.inner_text(FormaOprihodovanie.CHECK_KOLVO_OPRIHODOVANNOE_BAZOVOE)
+        assert CHECK_KOLVO_OPRIHODOVANO_RD == "100,000", f'значение в поле "Кол-во оприходовано РД" = {CHECK_KOLVO_OPRIHODOVANO_RD}'
+        assert CHECK_PROCENT_OPRIHODOVANO_KOLVO == "4,000", f'значение в поле "% оприходовано (кол-во)" = {CHECK_PROCENT_OPRIHODOVANO_KOLVO}'
+        assert CHECK_STOIMOST_OPRIHODOVANIE == "20 000,00", f'значение в поле "Стоимость оприходовано (руб. без учета НДС)" = {CHECK_STOIMOST_OPRIHODOVANIE}'
+        assert CHECK_PROCENT_OPRIHODOVANO_STIOMOST == "3,620", f'значение в поле "% оприходовано (ст-сть)" = {CHECK_PROCENT_OPRIHODOVANO_STIOMOST}'
+        assert CHECK_KOLVO_OPRIHODOVANNOE_FAKTICH == "100,000", f'значение в поле "Кол-во оприходованное фактическое" = {CHECK_KOLVO_OPRIHODOVANNOE_FAKTICH}'
+        assert CHECK_KOLVO_OPRIHODOVANNOE_BAZOVOE == "100,000", f'значение в поле "Кол-во оприходованное базовое" = {CHECK_KOLVO_OPRIHODOVANNOE_BAZOVOE}'
+
+    # форма "Оприходование"
