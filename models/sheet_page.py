@@ -8,6 +8,7 @@ from .locators import FormaOtgruzka
 from .locators import FormaLogistika
 from .locators import FormaPostuplenie
 from .locators import FormaOprihodovanie
+from .locators import FormaVidachaVProizdostvo
 
 
 class SheetPage(BasePage):
@@ -254,4 +255,28 @@ class SheetPage(BasePage):
         assert CHECK_KOLVO_OPRIHODOVANNOE_FAKTICH == "100,000", f'значение в поле "Кол-во оприходованное фактическое" = {CHECK_KOLVO_OPRIHODOVANNOE_FAKTICH}'
         assert CHECK_KOLVO_OPRIHODOVANNOE_BAZOVOE == "100,000", f'значение в поле "Кол-во оприходованное базовое" = {CHECK_KOLVO_OPRIHODOVANNOE_BAZOVOE}'
 
-    # форма "Оприходование"
+    # форма "Выдача в производство"
+    def fill_the_fields_vidacha_v_prozvodstvo(self):
+        self.page.fill(FormaVidachaVProizdostvo.PROIZVODITEL_RABOT, 'ООО "МонтажСпецСтрой"')
+        self.page.fill(FormaVidachaVProizdostvo.NOMER_ZAYAVKI_NA_VIDACHU, '№11')
+        self.page.click(FormaVidachaVProizdostvo.DATA_ZAYAVKI_NA_VIDACHU)
+        self.page.click(FormaVidachaVProizdostvo.DATE)
+        self.page.click(FormaVidachaVProizdostvo.DATA_VIDACHY)
+        self.page.click(FormaVidachaVProizdostvo.DATE)
+        self.page.fill(FormaVidachaVProizdostvo.KOLVO_VIDANNOE_FAKTICH, "300")
+
+    def data_entry_check_after_vidacha_v_prozvodstvo(self):
+        self.scroll_general_table()
+        CHECK_KOLVO_VIDANO_RD = self.page.inner_text(FormaVidachaVProizdostvo.CHECK_KOLVO_VIDANO_RD)
+        CHECK_PROCENT_VIDANO_KOLVO = self.page.inner_text(FormaVidachaVProizdostvo.CHECK_PROCENT_VIDANO_KOLVO)
+        CHECK_STOIMOST_VIDANO = self.page.inner_text(FormaVidachaVProizdostvo.CHECK_STOIMOST_VIDANO)
+        CHECK_PROCENT_VIDANO_STOIMOST = self.page.inner_text(FormaVidachaVProizdostvo.CHECK_PROCENT_VIDANO_STOIMOST)
+        CHECK_KOLVO_VIDANNOE_FAKTICH = self.page.inner_text(FormaVidachaVProizdostvo.CHECK_KOLVO_VIDANNOE_FAKTICH)
+        CHECK_KOLVO_VIDANNOE_BAZOVOE = self.page.inner_text(FormaVidachaVProizdostvo.CHECK_KOLVO_VIDANNOE_BAZOVOE)
+
+        assert CHECK_KOLVO_VIDANO_RD == "100,000", f'значение в поле "Кол-во выдано РД" = {CHECK_KOLVO_VIDANO_RD}'
+        assert CHECK_PROCENT_VIDANO_KOLVO == "4,000", f'значение в поле "% выдано (кол-во)" = {CHECK_PROCENT_VIDANO_KOLVO}'
+        assert CHECK_STOIMOST_VIDANO == "20 000,00", f'значение в поле "Стоимость выдано (руб. без учета НДС)" = {CHECK_STOIMOST_VIDANO}'
+        assert CHECK_PROCENT_VIDANO_STOIMOST == "3,620",f" значение в поле '% выдано (ст-сть)' = {CHECK_PROCENT_VIDANO_STOIMOST}"
+        assert CHECK_KOLVO_VIDANNOE_FAKTICH == "100,000",f" значение в поле 'Кол-во выданное фактическое' = {CHECK_KOLVO_VIDANNOE_FAKTICH}"
+        assert CHECK_KOLVO_VIDANNOE_BAZOVOE == "100,000",f" значение в поле 'Кол-во выданное базовое' = {CHECK_KOLVO_VIDANNOE_BAZOVOE}"

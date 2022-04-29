@@ -137,3 +137,18 @@ class FormaOprihodovanie():
     CHECK_KOLVO_OPRIHODOVANNOE_FAKTICH = "div.table-board-td >> nth=81"
     CHECK_KOLVO_OPRIHODOVANNOE_BAZOVOE = "div.table-board-td >> nth=82"
 
+class FormaVidachaVProizdostvo():
+    DATE = "div.react-datepicker div.react-datepicker__day--005"
+    PROIZVODITEL_RABOT = "input.mdc-text-field__input"
+    NOMER_ZAYAVKI_NA_VIDACHU = "input.mdc-text-field__input >> nth=1"
+    DATA_ZAYAVKI_NA_VIDACHU = "input.mdc-text-field__input >> nth=2"
+    DATA_VIDACHY = "input.mdc-text-field__input >> nth=3"
+    KOLVO_VIDANNOE_FAKTICH = "input.mdc-text-field__input >> nth=4"
+    #check:
+    CHECK_KOLVO_VIDANO_RD = "div.table-board-td >> nth=88"
+    CHECK_PROCENT_VIDANO_KOLVO = "div.table-board-td >> nth=92"
+    CHECK_STOIMOST_VIDANO = "div.table-board-td >> nth=91"
+    CHECK_PROCENT_VIDANO_STOIMOST = "div.table-board-td >> nth=93"
+    CHECK_KOLVO_VIDANNOE_FAKTICH = "div.table-board-td >> nth=89"
+    CHECK_KOLVO_VIDANNOE_BAZOVOE = "div.table-board-td >> nth=90"
+
