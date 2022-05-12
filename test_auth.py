@@ -9,7 +9,7 @@ import time
 
 @pytest.mark.auth
 def test_auth(page:Page):
-    link = "https://procurement2021.tk"
+    link = "https://dev.procurement.pragma.info/auth"
     page1 = AuthPage(page, link)
     page1.open()
     page1.auth_admin()

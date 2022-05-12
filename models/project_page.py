@@ -26,6 +26,10 @@ class ProjectPage(BasePage):
         assert self.page.inner_text(f"//div[2]/div/div[2]/div/div/div[2]/div[{n}]/div[2]/span[2]") == "project",\
             "Проект не создан"
 
+    def delete_project(self):
+        self.page.click(ProjectsPageLocators.DELETE_PROJECT_BUTTON)
+        time.sleep(1)
+
     def open_project(self):
         assert self.page.locator("text=project"), "В системе нет проекта с названием project!"
         self.page.click("text=project")

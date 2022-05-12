@@ -15,6 +15,7 @@ class ProjectsPageLocators():
     SEARCH_FIELD = "input.mdc-text-field__input"
     NAME_NEW_PROJECT = "div#modals span.mdc-text-field__ripple"
     CREATE_PROJECT_BUTTON = "div#modals div.mdc-button__ripple >> nth=1"
+    DELETE_PROJECT_BUTTON = "button:below(span.input-text:has-text('project'))"
 
 
 class SheetPageLocators():
