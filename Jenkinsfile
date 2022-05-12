@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    docker {image 'mcr.microsoft.com/playwright:v1.21.0-focal'}
+    docker {image 'mcr.microsoft.com/playwright:v1.20.0-focal'}
   }
   stages {
     stage('install pip') {
