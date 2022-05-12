@@ -34,6 +34,6 @@ pipeline {
         sh '''
           pytest -s -v --tb=short -m auth
         '''
-      }
     }
   }
+}
