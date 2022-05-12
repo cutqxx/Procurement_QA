@@ -1,8 +1,6 @@
 pipeline {
   agent {
-    docker {
-      image 'mcr.microsoft.com/playwright:v1.21.0-focal'
-    }
+    docker {image 'mcr.microsoft.com/playwright:v1.21.0-focal'}
   }
   stages {
     stage('install pip') {
@@ -34,7 +32,7 @@ pipeline {
         sh '''
           pytest -s -v --tb=short -m auth
         '''
-        }
       }
     }
   }
+}

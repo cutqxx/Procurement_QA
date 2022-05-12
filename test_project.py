@@ -64,7 +64,6 @@ class TestSmoke():
         page_sheet.click_button_open_forma(3)
         page_sheet.add_pid_in_forma()
         page_sheet.fill_the_fields_otgruzka()
-        page_sheet.click_button_rasschitat()
         page_sheet.click_button_vnesti_in_forma()
         page_sheet.data_entry_check_after_otgruzka()
 
