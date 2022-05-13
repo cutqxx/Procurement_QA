@@ -7,10 +7,9 @@ pipeline {
   stages {
     stage('install pip') {
       steps {
-        sh '''
-        sudo apt update
-        sudo apt install python3.9
-        pip3 --version
+        sh '''sudo apt update
+          sudo apt install python3.9
+          pip3 --version
         '''
       }
     }
@@ -18,16 +17,21 @@ pipeline {
     stage('install playwright') {
       steps {
         sh '''
-        pip install playwright
-        playwright install
-        pip install pytest-playwright
+          pip install playwright
+          playwright install
+          pip install pytest-playwright
         '''
+      }
+    }
+    stage('help') {
+      steps {
+        sh 'npx playwright test --help'
       }
     }
     stage('test') {
       steps {
         sh '''
-        pytest -s -v --tb=short -m auth
+          pytest -s -v --tb=short -m auth
         '''
         }
       }
