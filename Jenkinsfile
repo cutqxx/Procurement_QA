@@ -8,6 +8,7 @@ pipeline {
     stage('install playwright') {
       steps {
         sh '''
+          get-pip.py
           pip install playwright
           playwright install
           pip install pytest-playwright
