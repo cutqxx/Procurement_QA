@@ -5,20 +5,29 @@ pipeline {
     }
   }
   stages {
+    stage('install pip') {
+      steps {
+        sh '''
+        sudo apt update
+        sudo apt install python3.9
+        pip3 --version
+        '''
+      }
+    }
+
     stage('install playwright') {
       steps {
         sh '''
-          get-pip.py
-          pip install playwright
-          playwright install
-          pip install pytest-playwright
+        pip install playwright
+        playwright install
+        pip install pytest-playwright
         '''
       }
     }
     stage('test') {
       steps {
         sh '''
-          pytest -s -v --tb=short -m auth
+        pytest -s -v --tb=short -m auth
         '''
         }
       }
