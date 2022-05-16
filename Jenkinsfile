@@ -5,7 +5,14 @@ pipeline {
     }
   }
   stages {
-
+    stage('install playwright') {
+      steps {
+        sh '''
+          playwright install
+          pip install pytest-playwright
+        '''
+      }
+    }
     stage('test') {
       steps {
         sh '''
