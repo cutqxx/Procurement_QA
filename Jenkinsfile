@@ -9,7 +9,7 @@ pipeline {
       steps {
         sh '''
 
-          pip install pytest-playwright --user
+          sudo -H pip install pytest-playwright --user
         '''
       }
     }
