@@ -8,7 +8,7 @@ pipeline {
     stage('install playwright') {
       steps {
         sh '''
-
+          apt-get install sudo
           sudo -H pip install pytest-playwright --user
         '''
       }
