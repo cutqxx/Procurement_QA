@@ -5,15 +5,7 @@ pipeline {
     }
   }
   stages {
-    stage('install pip') {
-      steps {
-        sh '''
-          sudo apt update
-          sudo apt install python3-pip
-          pip3 --version
-        '''
-      }
-    }
+
 
     stage('install playwright') {
       steps {
