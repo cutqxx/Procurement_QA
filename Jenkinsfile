@@ -8,6 +8,7 @@ pipeline {
     stage('install playwright') {
       steps {
         sh '''
+          docker run -it --rm --ipc=host mcr.microsoft.com/playwright/python:v1.22.0-focal /bin/bash
           playwright install
           pip install pytest-playwright
         '''
