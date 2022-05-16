@@ -8,14 +8,7 @@ pipeline {
 
 
     stage('install playwright') {
-      steps {
-        sh '''
-          pip install playwright
-          playwright install
-          pip install pytest-playwright
-        '''
-      }
-    }
+
     stage('help') {
       steps {
         sh 'npx playwright test --help'
