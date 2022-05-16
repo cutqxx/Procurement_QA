@@ -5,8 +5,9 @@ from playwright.sync_api import Page
 import time
 
 
-@pytest.mark.smoke
+@pytest.mark.smokepass
 class TestSmoke():
+    # Позитивные кейсы
     def test_create_new_project(self, page: Page):
         link = "https://dev.procurement.pragma.info/projects"
         page_project = ProjectPage(page, link)
@@ -50,11 +51,11 @@ class TestSmoke():
         page_sheet.click_button_open_forma(2)
         page_sheet.add_pid_in_forma()
         page_sheet.fill_the_fields_kontraknaciya()
-        page_sheet.click_button_rasschitat()
+        # page_sheet.click_button_rasschitat()
         page_sheet.click_button_vnesti_in_forma()
         page_sheet.data_entry_check_after_kontraktacii()
 
-    def test_fill_forma_otgruzka(self,page: Page ):
+    def test_fill_forma_otgruzka(self, page: Page):
         print("Тест: заполнение данных в форму отгрузки")
         link = "https://dev.procurement.pragma.info/projects"
         page_project = ProjectPage(page, link)
@@ -93,7 +94,6 @@ class TestSmoke():
         page_sheet.click_button_vnesti_in_forma()
         page_sheet.data_entry_check_after_postuplenie()
 
-
     def test_fill_forma_oprihodovanie(self, page: Page):
         print("Тест: заполнение данных в форму оприходование")
         link = "https://dev.procurement.pragma.info/projects"
@@ -120,8 +120,7 @@ class TestSmoke():
         page_sheet.click_button_vnesti_in_forma()
         page_sheet.data_entry_check_after_vidacha_v_prozvodstvo()
 
-
-    #---- Корректировка потребности ---
+    # ---- Корректировка потребности ---
     # def test_korrektirovka_potrabnosti(self, page: Page):
     #     print("Тест: проверка функционала Корректировки потребности")
     #     link = "https://dev.procurement.pragma.info/projects"
@@ -136,10 +135,32 @@ class TestSmoke():
     #     page_sheet.data_entry_check_after_vidacha_v_prozvodstvo()
 
     @pytest.mark.new
-    def test_delete_project(self, page: Page):
-        print("Тест: удаление проекта")
+    def test_error_with_incorrect_data_if_forma_kontraktaciya(self, page: Page):
+        print("Тест: Вывод ошибки при вводе данных больше чем в прошлой иттерации")
+        link = "https://dev.procurement.pragma.info/projects"
+        #     page_project = ProjectPage(page, link)
+        #     page_sheet = SheetPage(page, link)
+        #     page_project.open()
+        #     page_project.open_project()
+        #     page_sheet.click_button_open_forma(7)
+
+    # def test_delete_project(self, page: Page):
+    #     print("Тест: удаление проекта")
+    #     link = "https://dev.procurement.pragma.info/projects"
+    #     page_project = ProjectPage(page, link)
+    #     page_project.open()
+    #     page_project.click_to_button_projects_edit()
+    #     page_project.delete_project()
+
+
+@pytest.mark.smokefail
+class TestSmokeFail():
+    def test_create_new_project(self, page: Page):
         link = "https://dev.procurement.pragma.info/projects"
         page_project = ProjectPage(page, link)
         page_project.open()
+        page_project.check_title_projects_page()
         page_project.click_to_button_projects_edit()
-        page_project.delete_project()
+        page_project.click_to_button_add_project()
+        page_project.create_new_projects()
+        time.sleep(1)
