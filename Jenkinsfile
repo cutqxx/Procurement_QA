@@ -8,10 +8,10 @@ pipeline {
     stage('install playwright') {
       steps {
         sh '''
-          sudo pip install --upgrade pip --user
-          sudp pip install playwright --user
+          pip install --upgrade pip --user
+          pip install playwright --user
           playwright install
-          sudo pip install pytest-playwright --user
+          pip install pytest-playwright --user
         '''
       }
     }
