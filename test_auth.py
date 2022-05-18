@@ -5,7 +5,7 @@ from playwright.sync_api import Page
 
 
 @pytest.mark.auth
-def test_auth(page:Page):
+def test_auth(page: Page):
     print('Авторизация за администратора')
     link = "https://dev.procurement.pragma.info/auth"
     page1 = AuthPage(page, link)

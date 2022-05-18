@@ -4,7 +4,6 @@ from playwright.sync_api import BrowserType
 from playwright.sync_api import (Browser, BrowserContext)
 from typing import Dict,Generator
 
-
 @pytest.fixture()
 def context(
     browser: Browser,
@@ -16,10 +15,10 @@ def context(
     browser = browser_type.launch(**{
         **browser_type_launch_args,
         **browser_context_args,
-        "headless": True,
+        "headless": False,
         "slow_mo": 100
     })
-    context = browser.new_context(storage_state="auth.json", **browser_context_args)
+    # context = browser.new_context(storage_state="auth.json", **browser_context_args)
 
     yield context
     context.storage_state(path="auth.json")

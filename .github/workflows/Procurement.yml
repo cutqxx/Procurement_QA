@@ -36,7 +36,7 @@ jobs:
           pip install pytest-playwright
      
       - name: Run your tests
-        run: pytest -s -v --tb=short -m auth    
+        run: pytest -s -v --tb=short -m auth --load-storage=auth.json
       
   SmokePassTest:
     runs-on: ubuntu-latest
