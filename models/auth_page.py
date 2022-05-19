@@ -4,9 +4,12 @@ from .locators import AuthPageLocators
 
 class AuthPage(BasePage):
     def auth_admin(self):
-        self.insert_login()
-        self.insert_password()
-        self.auth_button_click()
+        if self.page.inner_text(AuthPageLocators.TITLE_NAME) == "Вход":
+            self.insert_login()
+            self.insert_password()
+            self.auth_button_click()
+        elif self.page.inner_text(AuthPageLocators.TITLE_NAME) == "Проекты":
+            print("Вы уже авторизованы!")
 
     def insert_login(self):
         self.page.fill(AuthPageLocators.LOGIN_INPUT, "cutqxx@gmail.com")
