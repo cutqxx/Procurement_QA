@@ -18,7 +18,7 @@ def context(
         "headless": False,
         "slow_mo": 100
     })
-    # context = browser.new_context(storage_state="auth.json", **browser_context_args)
+    context = browser.new_context(storage_state="auth.json", **browser_context_args)
 
     yield context
     context.storage_state(path="auth.json")
