@@ -48,8 +48,8 @@ class FormaProrabotkaPotrebnosti():
     COMMENT_ZAKUPKA = "//html/body/div[1]/div/div/div[1]/div[2]/div/div[2]/table/tbody/tr/td[11]/div/label/input"
     ORIENTIR_CENA = "//html/body/div[1]/div/div/div[1]/div[2]/div/div[2]/table/tbody/tr/td[12]/div/label/input"
     # check:
-    CHECK_ORIENTIR_CENA = "div.table-board-td >> nth=49"
-    CHECK_ORIENTIR_STOIMOST = "div.table-board-td >> nth=50"
+    CHECK_ORIENTIR_CENA = "div.table-board-td >> nth=48"
+    CHECK_ORIENTIR_STOIMOST = "div.table-board-td >> nth=49"
 
 
 class FormaKontraktacii():
@@ -66,15 +66,15 @@ class FormaKontraktacii():
     CENA_KONTRAKTACII_FAKTICH = "input.mdc-text-field__input >> nth = 6"
     COMMENT_ZAKUPKA = "input.mdc-text-field__input >> nth = 7"
     # check:
-    CHECK_KOLVO_ZAKONTRAKTOVANO_RD = "div.table-board-td >> nth=44"
-    CHECK_PROCENT_KONTRAKTACII_KOLVO = "div.table-board-td >> nth=51"
-    CHECK_ORIENTIROVOCHNAYA_STOIMOST = "div.table-board-td >> nth=50"
-    CHECK_PROCENT_KONTRAKTACII_STOIMOST = "div.table-board-td >> nth=52"
-    CHECK_KOLVO_VSEGO_FAKTICH = "div.table-board-td >> nth=17"
-    CHECK_KOLVO_KONTRAKTACII_FAKTICH = "div.table-board-td >> nth=45"
-    CHECK_CENA_KONTRAKTACII_FAKTICHESKOE = "div.table-board-td >> nth=47"
-    CHECK_STOIMOST_KONTRAKTACII = "div.table-board-td >> nth=48"
-    CHECK_KOEFFICIENT_PERESCHETA = "div.table-board-td >> nth=16"
+    CHECK_KOLVO_ZAKONTRAKTOVANO_RD = "div.table-board-td >> nth=43"
+    CHECK_PROCENT_KONTRAKTACII_KOLVO = "div.table-board-td >> nth=50"
+    CHECK_ORIENTIROVOCHNAYA_STOIMOST = "div.table-board-td >> nth=49"
+    CHECK_PROCENT_KONTRAKTACII_STOIMOST = "div.table-board-td >> nth=51"
+    CHECK_KOLVO_VSEGO_FAKTICH = "div.table-board-td >> nth=15"
+    CHECK_KOLVO_KONTRAKTACII_FAKTICH = "div.table-board-td >> nth=43"
+    CHECK_CENA_KONTRAKTACII_FAKTICHESKOE = "div.table-board-td >> nth=45"
+    CHECK_STOIMOST_KONTRAKTACII = "div.table-board-td >> nth=46"
+    CHECK_KOEFFICIENT_PERESCHETA = "div.table-board-td >> nth=14"
 
 
 class FormaOtgruzka():
