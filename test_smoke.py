@@ -56,31 +56,33 @@ class TestSmoke():
         page_sheet.click_button_vnesti_in_forma()
         page_sheet.data_entry_check_after_kontraktacii()
 
-    # def test_fill_forma_otgruzka(self, page: Page):
-    #     print("Тест: заполнение данных в форму отгрузки")
-    #     link = "https://dev.procurement.pragma.info/projects"
-    #     page_project = ProjectPage(page, link)
-    #     page_sheet = SheetPage(page, link)
-    #     page_project.open()
-    #     page_project.open_project()
-    #     page_sheet.click_button_open_forma(3)
-    #     page_sheet.add_pid_in_forma()
-    #     page_sheet.fill_the_fields_otgruzka()
-    #     page_sheet.click_button_vnesti_in_forma()
-    #     page_sheet.data_entry_check_after_otgruzka()
+    def test_fill_forma_otgruzka(self, page: Page):
+        print("Тест: заполнение данных в форму отгрузки")
+        link = "https://dev.procurement.pragma.info/projects"
+        page_project = ProjectPage(page, link)
+        page_sheet = SheetPage(page, link)
+        page_project.open()
+        page_project.open_project()
+        page_sheet.click_button_open_forma(3)
+        page_sheet.add_pid_in_forma()
+        page_sheet.fill_the_fields_otgruzka()
+        page_sheet.click_button_vnesti_in_forma()
+        page_sheet.data_entry_check_after_otgruzka()
     #
-    # def test_fill_forma_logistika(self, page: Page):
-    #     print("Тест: заполнение данных в форму логистики")
-    #     link = "https://dev.procurement.pragma.info/projects"
-    #     page_project = ProjectPage(page, link)
-    #     page_sheet = SheetPage(page, link)
-    #     page_project.open()
-    #     page_project.open_project()
-    #     page_sheet.click_button_open_forma(4)
-    #     page_sheet.add_pid_in_forma()
-    #     page_sheet.fill_the_fields_logistika()
-    #     page_sheet.click_button_vnesti_in_forma()
-    #     page_sheet.data_entry_check_after_logistika()
+
+    @pytest.mark.debug
+    def test_fill_forma_logistika(self, page: Page):
+        print("Тест: заполнение данных в форму логистики")
+        link = "https://dev.procurement.pragma.info/projects"
+        page_project = ProjectPage(page, link)
+        page_sheet = SheetPage(page, link)
+        page_project.open()
+        page_project.open_project()
+        page_sheet.click_button_open_forma(4)
+        page_sheet.add_pid_in_forma()
+        page_sheet.fill_the_fields_logistika()
+        page_sheet.click_button_vnesti_in_forma()
+        page_sheet.data_entry_check_after_logistika()
     #
     # def test_fill_forma_postuplenie(self, page: Page):
     #     print("Тест: заполнение данных в форму поступление")
