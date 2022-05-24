@@ -87,9 +87,10 @@ class SheetPage(BasePage):
         self.page.set_input_files(SheetPageLocators.UPLOAD_FILES, 'Example/potreb.xlsx')
         # raw = self.page.locator(SheetPageLocators.CHECK_ADD_POTREBNOST).wait_for()
         time.sleep(0.5)
-        check = self.page.inner_text(SheetPageLocators.CHECK_ADD_POTREBNOST)
-        assert check == "НМЗ-НСК", "Таблица не создана!"
 
+    def check_add_potreb(self):
+        check= self.page.inner_text(SheetPageLocators.CHECK_ADD_POTREBNOST)
+        assert check == "А.3", "Таблица не создана!"
     # Форма "Предв. проработка потребности"
     def fill_the_fields_prorabotka_potrebnosti(self):
         self.page.click(FormaProrabotkaPotrebnosti.GENPODRYADCHICK)

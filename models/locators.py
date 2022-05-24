@@ -48,8 +48,8 @@ class FormaProrabotkaPotrebnosti():
     COMMENT_ZAKUPKA = "//html/body/div[1]/div/div/div[1]/div[2]/div/div[2]/table/tbody/tr/td[11]/div/label/input"
     ORIENTIR_CENA = "//html/body/div[1]/div/div/div[1]/div[2]/div/div[2]/table/tbody/tr/td[12]/div/label/input"
     # check:
-    CHECK_ORIENTIR_CENA = "div.table-board-td >> nth=49"
-    CHECK_ORIENTIR_STOIMOST = "div.table-board-td >> nth=50"
+    CHECK_ORIENTIR_CENA = "div.table-board-td >> nth=48"
+    CHECK_ORIENTIR_STOIMOST = "div.table-board-td >> nth=49"
 
 
 class FormaKontraktacii():
@@ -66,15 +66,15 @@ class FormaKontraktacii():
     CENA_KONTRAKTACII_FAKTICH = "input.mdc-text-field__input >> nth = 6"
     COMMENT_ZAKUPKA = "input.mdc-text-field__input >> nth = 7"
     # check:
-    CHECK_KOLVO_ZAKONTRAKTOVANO_RD = "div.table-board-td >> nth=44"
-    CHECK_PROCENT_KONTRAKTACII_KOLVO = "div.table-board-td >> nth=51"
-    CHECK_ORIENTIROVOCHNAYA_STOIMOST = "div.table-board-td >> nth=50"
-    CHECK_PROCENT_KONTRAKTACII_STOIMOST = "div.table-board-td >> nth=52"
-    CHECK_KOLVO_VSEGO_FAKTICH = "div.table-board-td >> nth=17"
-    CHECK_KOLVO_KONTRAKTACII_FAKTICH = "div.table-board-td >> nth=45"
-    CHECK_CENA_KONTRAKTACII_FAKTICHESKOE = "div.table-board-td >> nth=47"
-    CHECK_STOIMOST_KONTRAKTACII = "div.table-board-td >> nth=48"
-    CHECK_KOEFFICIENT_PERESCHETA = "div.table-board-td >> nth=16"
+    CHECK_KOLVO_ZAKONTRAKTOVANO_RD = "div.table-board-td >> nth=43"
+    CHECK_PROCENT_KONTRAKTACII_KOLVO = "div.table-board-td >> nth=50"
+    CHECK_ORIENTIROVOCHNAYA_STOIMOST = "div.table-board-td >> nth=49"
+    CHECK_PROCENT_KONTRAKTACII_STOIMOST = "div.table-board-td >> nth=51"
+    CHECK_KOLVO_VSEGO_FAKTICH = "div.table-board-td >> nth=15"
+    CHECK_KOLVO_KONTRAKTACII_FAKTICH = "div.table-board-td >> nth=43"
+    CHECK_CENA_KONTRAKTACII_FAKTICHESKOE = "div.table-board-td >> nth=45"
+    CHECK_STOIMOST_KONTRAKTACII = "div.table-board-td >> nth=46"
+    CHECK_KOEFFICIENT_PERESCHETA = "div.table-board-td >> nth=14"
 
 
 class FormaOtgruzka():
@@ -88,11 +88,11 @@ class FormaOtgruzka():
     COMMENT_ZAKUPKA = "input.mdc-text-field__input >> nth = 6"
     # check:
     CHECK_KOLVO_OTGRUZHENO_RD = "div.table-board-td >> nth=54"
-    CHECK_PROCENT_OTGRUZKI_KOLVO = "div.table-board-td >> nth=58"
-    CHECK_STOIMOST_OTGRUZKI = "div.table-board-td >> nth=57"
-    CHECK_PROCENT_OTGRUZKI_STOIMOST = "div.table-board-td >> nth=59"
-    CHECK_KOLVO_OTGRUZHENO_FAKTICH = "div.table-board-td >> nth=55"
-    CHECK_KOLVO_OTGRUZHENO_BAZOVOE = "div.table-board-td >> nth=56"
+    CHECK_PROCENT_OTGRUZKI_KOLVO = "div.table-board-td >> nth=57"
+    CHECK_STOIMOST_OTGRUZKI = "div.table-board-td >> nth=56"
+    CHECK_PROCENT_OTGRUZKI_STOIMOST = "div.table-board-td >> nth=58"
+    CHECK_KOLVO_OTGRUZHENO_FAKTICH = "div.table-board-td >> nth=54"
+    CHECK_KOLVO_OTGRUZHENO_BAZOVOE = "div.table-board-td >> nth=55"
 
 
 class FormaLogistika():
@@ -105,13 +105,13 @@ class FormaLogistika():
     GABARITY = "input.mdc-text-field__input >> nth=5"
     COMMENT_LOGISTIKA = "input.mdc-text-field__input >> nth=6"
     # check:
-    CHECK_PEREVOZCHICK = "div.table-board-td >> nth=65"
-    CHECK_VID_POSTAVKI = "div.table-board-td >> nth=66"
-    CHECK_MESTO_PEREVALKI = "div.table-board-td >> nth=68"
-    CHECK_DATA_POSTUPLENIYA = "div.table-board-td >> nth=70"
-    CHECK_MASSA = "div.table-board-td >> nth=67"
-    CHECK_GABARITY = "div.table-board-td >> nth=69"
-    CHECK_COMMENT_LOGISTIKA = "div.table-board-td >> nth=71"
+    CHECK_PEREVOZCHICK = "div.table-board-td >> nth=64"
+    CHECK_VID_POSTAVKI = "div.table-board-td >> nth=65"
+    CHECK_MESTO_PEREVALKI = "div.table-board-td >> nth=67"
+    CHECK_DATA_POSTUPLENIYA = "div.table-board-td >> nth=69"
+    CHECK_MASSA = "div.table-board-td >> nth=66"
+    CHECK_GABARITY = "div.table-board-td >> nth=68"
+    CHECK_COMMENT_LOGISTIKA = "div.table-board-td >> nth=70"
 
 
 class FormaPostuplenie():
