@@ -15,7 +15,7 @@ def context(
     browser = browser_type.launch(**{
         **browser_type_launch_args,
         **browser_context_args,
-        "headless": False,
+        "headless": True,
         "slow_mo": 100
     })
     context = browser.new_context(storage_state="auth.json", **browser_context_args)
