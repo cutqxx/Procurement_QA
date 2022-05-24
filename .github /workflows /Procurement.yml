@@ -60,6 +60,7 @@ jobs:
           
       - name: Запуск позитивных смоук тестов
         run: pytest -s -v --tb=short -m smokepass
+        
       - name: Discord Message Notify
         # You may pin to the exact commit or the version.
         # uses: appleboy/discord-action@4c196125180125310ac20c72034757bb71020383
@@ -70,6 +71,8 @@ jobs:
           # discord webhook token
           webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
           # the message contents (up to 2000 characters)
+          color: "#8b9b9c"
+          username: "GitHub Bot"
           message: |
             Tests started by 👤 ${{ github.actor }}
             From `${{ github.head_ref }}` to `${{ github.base_ref }}`
